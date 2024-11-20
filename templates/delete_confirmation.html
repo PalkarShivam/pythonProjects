@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container{
+            max-width:600px;
+            margin-top:100px;
+        }
+        h1{
+            color:red;
+            text-decoration:underline;
+        }
+        .confirmation-text{
+            font-size:30px;
+        }
+        .btn-container{
+            display:flex;
+            justify-content:space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1><u>DELETE CONFIRMATION</u></h1>
+        <div class="alert alert-warning mt-4">
+            <p class="confirmation-text">Do you really want to delete this <span style="color:red">{{ obj.CompanyName }} {{ obj.ModelName }} {{ obj.Price }}</span> record?</p>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="btn-container">
+                <button type="submit" class="btn btn-danger col-5">YES</button>
+                <a href="/seller/show/" class="btn btn-success col-5">NO</a>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
